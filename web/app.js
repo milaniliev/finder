@@ -55,7 +55,7 @@ request.open('GET', 'buildings.json')
 request.send()
 
 request.addEventListener('load', function(){
-  var buildings = JSON.parse(request.textContent)
+  var buildings = JSON.parse(request.responseText)
   show_everything(buildings)
 })
 
