@@ -7,7 +7,7 @@ server.use(express.static('../web/'))
 r.connect({host: 'milaniliev.com'}, function(error, connection) {
   if (error) { throw error }
 
-  server.get('/buildings.json', function(request, response){
+  server.get('/finder/buildings.json', function(request, response){
     r.table('buildings').run(connection, function(error, cursor){
       if (error) { throw error }
       cursor.toArray(function(error, buildings){
