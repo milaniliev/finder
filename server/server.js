@@ -1,20 +1,21 @@
-var buildings = [
-  {"name": "Calkins Hall", "places": [
-    {"name": "Calkins Lab", "resources": ["Student Computing Services"]}
-  ]},
-  {"name": "Adams Hall", "places": [
-    {"name": "Innovation lab"}, {"name": "Linux lab"},
-    {"name": "Computer Science Department Office",  "resources": ["Department Chair"]}
-  ]}
-]
+var r = require('rethinkdb')
 
-var express = require('express')
-var server = express()
+r.connect({host: 'milaniliev.com'}, function(error, connection) {
+  if (error) { throw error }
+  var express = require('express')
+  var server = express()
 
-server.get('/finder/buildings.json', function(request, response){
-  var buildings_json = JSON.stringify(buildings)
-  console.log(buildings_json)
-  response.send(buildings_json)
-})
+  server.get('/finder/buildings.json', function(request, response){
+    r.table('buildings').run(connection, function(error, cursor){
+      if (error) { throw error }
+      cursor.toArray(function(error, buildings){
+        if (error) { throw error }
+        var buildings_json = JSON.stringify(buildings)
+      
+        response.send(buildings_json)
+      })
+    })
+  })
 
-server.listen(3415)
+  server.listen(3415)    
+});
