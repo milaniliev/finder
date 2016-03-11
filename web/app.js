@@ -22,7 +22,7 @@ var search_field = document.querySelector("[id=search_field]")
 
 search_field.addEventListener('keyup', function(){
   buildings.forEach(function(building){
-    var building_name_matches = building.name.match(new RegExp(search_field.value, 'i'))
+    var building_name_matches = building.name.match(new RegExp(search_field.value, 'i'))
     var place_matched = false
      
     building.places.forEach(function(place){
