@@ -3,12 +3,14 @@
     <link rel="stylesheet" href="style.css"/>
   </head>
   <body>
-    <input id="search_field" type="text" placeholder="Name of Office or Building or Classroom" />
+    <input id="search_field" type="text" placeholder="Building, Office or Classroom" />
     <div id="map_stuff">
-      <div id="map" style="background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/534815/infocenter_print_campusmap.png)"> </div>
+      <div id="map"> </div>
       <div id="places_list">
       </div>
     </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpVNx2VYbtFuoVbXF9EuBuqzh5DeNLGHU&callback=initMap"
+    async defer></script>
      <script src="app.js"></script>
   </body>
 </html>

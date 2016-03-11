@@ -1,11 +1,13 @@
 var r = require('rethinkdb')
+var express = require('express')
+var server = express()
+
+server.use(express.static('../web/'))
 
 r.connect({host: 'milaniliev.com'}, function(error, connection) {
   if (error) { throw error }
-  var express = require('express')
-  var server = express()
 
-  server.get('/finder/buildings.json', function(request, response){
+  server.get('/buildings.json', function(request, response){
     r.table('buildings').run(connection, function(error, cursor){
       if (error) { throw error }
       cursor.toArray(function(error, buildings){

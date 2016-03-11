@@ -11,17 +11,44 @@ body {
   margin: 0;
 }
 
-[class="building"] {
+.building {
   border: 1px solid rgb(210, 210, 210);
   background-color: rgb(240, 240, 240);
   padding: 10px;
   margin: 5px;
   border-radius: 3px;
   font-family: sans-serif;
+  font-size: 24px;
 }
 
-[class="place"]{
+.building [name="edit"]{
+  border: none;
+  font-weight: bold;
+  background-color: transparent;
+  color: #CCC;
+  float: right;
+}
+
+.place {
   font-size: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.place [name="resources"], .place [name="directions"] {
+  display: none;
+}
+
+.expanded .place [name="resources"], .expanded .place [name="directions"]{
+  display: block;
+}
+
+.place [name="name"], .place [name="resources"], .place [name="directions"] {
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #AAA;
+  padding: 4px;
 }
 
 [id="map_stuff"] {
