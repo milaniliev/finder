@@ -17,7 +17,6 @@ var show_everything = function(buildings){
         <input name="name" placeholder="Name" />
         <input name="resources" placeholder="Resources and Resources"/>
         <input name="directions" placeholder="Directions"/>
-        <hr/>
       `
       place.name_field = place.element.querySelector('[name=name]')
       place.resources_field = place.element.querySelector('[name=resources]')
