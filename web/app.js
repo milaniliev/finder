@@ -1,12 +1,5 @@
-var buildings = [
-  {name: "Calkins Hall", places: [
-    {name: "Calkins Lab", resources: ["Student Computing Services"]}
-  ]},
-  {name: "Adams Hall", places: [
-    {name: "Innovation lab"}, {name: "Linux lab"},
-    {name: "Computer Science Department Office",  resources: ["Department Chair"]}
-  ]}
-]
+var show_everything = function(buildings){
+
 
 var places_list = document.querySelector('[id=places_list]')
 
@@ -52,6 +45,18 @@ search_field.addEventListener('keyup', function(){
        building.element.style.display = 'none'
     }
   })
-  
 })
+}
+
+
+var request = new XMLHttpRequest()
+
+request.open('GET', 'buildings.json')
+request.send()
+
+request.addEventListener('load', function(){
+  var buildings = JSON.parse(request.textContent)
+  show_everything(buildings)
+})
+
 
