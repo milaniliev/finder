@@ -12,7 +12,9 @@ var express = require('express')
 var server = express()
 
 server.get('/buildings.json', function(request, response){
-  response.send(JSON.stringify(buildings))
+  var buildings_json = JSON.stringify(buildings)
+  console.log(buildings_json)
+  response.send(buildings_json)
 })
 
 server.listen(3415)
