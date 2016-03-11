@@ -11,7 +11,7 @@ var buildings = [
 var express = require('express')
 var server = express()
 
-server.get('/buildings.json', function(request, response){
+server.get('/finder/buildings.json', function(request, response){
   var buildings_json = JSON.stringify(buildings)
   console.log(buildings_json)
   response.send(buildings_json)
